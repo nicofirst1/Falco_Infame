@@ -4,7 +4,32 @@ import traceback
 import telepot
 from telepot.delegate import per_chat_id, create_open, pave_event_space
 
-from bot import sticker_dict, TOKEN, nick_names
+from bot import TOKEN
+
+# ad ogni nome sono correlati gli id degli sticker
+sticker_dict = {"tommaso": ["CAADAgADPAADaRwpAXAAAZZE4WvcRgI"],
+                "roberta": ["CAADAgADOgADaRwpAV29eeFY5e95Ag", "CAADAgADQwADaRwpAQ4yYMZEORKsAg"],
+                "roberto": ["CAADAgADNQADaRwpAZj3y1aPRvHxAg", "CAADAgADPgADaRwpAVkFLZUucXoTAg"],
+                "salvatore": ["CAADAgADQgADaRwpAbYztok1WxzxAg"],
+                "federico": ["CAADAgADNgADaRwpAY01VYA9kGygAg", "CAADAgADPwADaRwpAddbHgmKyOV9Ag"],
+                "clinciu": ["CAADAgADPQADaRwpAaWXU7nysbFuAg", "CAADAgADRgADaRwpAXkDeJv0l_S0Ag"],
+                "nicolo": ["CAADAgADOwADaRwpAfyRXoNAmFhyAg", "CAADAgADRAADaRwpAeyKaJ"],
+                "edoardo": ["CAADAgADNwADaRwpAWGPbiFxmsA-Ag", "CAADAgADQAADaRwpAfIAAVrG8HwOiAI"],
+                "chiara": ["CAADAgADOAADaRwpAUzmcwFd3dWGAg", "CAADAgADQQADaRwpAcWYSoSoWvZnAg"]
+                }
+
+# ad ogni nome sono correlati i soprannomi
+nick_names = {"tommaso": ["tommaso", "tom", "tomm"],
+              "roberta": ["roberta", "robbi", "robi"],
+              "roberto": ["roberto", "falco", "falconi"],
+              "salvatore": ["salvatore", "salvo"],
+              "federico": ["federico", "fede"],
+              "clinciu": ["clinciu", "ciocco", "stefan"],
+              "nicolo": ["nicolo", "nick"],
+              "edoardo": ["edoardo", "bini", "edo"],
+              "chiara": ["chiara", "chiaretta"]
+              }
+
 
 # creo una classe perche bho
 class sticker_sender(telepot.helper.ChatHandler):
@@ -42,6 +67,10 @@ class sticker_sender(telepot.helper.ChatHandler):
                 self.sender.sendSticker(random.choice(self._dictionary.get("edoardo")))
             elif any(ext in message for ext in nick_names.get("chiara")):
                 self.sender.sendSticker(random.choice(self._dictionary.get("chiara")))
+            elif "freda" in message:
+                self.sender.sendSticker("CAADAgADRAADaRwpAeyKaJ")
+            elif "sovraccosce" in message:
+                self.sender.sendSticker("CAADAgADQwADaRwpAQ4yYMZEORKsAg")
 
 
 
