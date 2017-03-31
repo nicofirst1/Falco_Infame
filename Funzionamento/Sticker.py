@@ -71,10 +71,3 @@ class sticker_sender(telepot.helper.ChatHandler):
             elif "sovraccosce" in message:
                 self.sender.sendSticker("CAADAgADQwADaRwpAQ4yYMZEORKsAg")
 
-# sta parte solo dio sa che fa
-def run_sticker(token):
-    bot = telepot.DelegatorBot(token, [
-        pave_event_space()(
-            per_chat_id(), create_open, sticker_sender, timeout=1000),
-    ])
-    return bot

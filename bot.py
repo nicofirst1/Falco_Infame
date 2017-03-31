@@ -1,20 +1,17 @@
-from Funzionamento.Audio import run_audio
-from Funzionamento.Insulti import run_insulti
-from Funzionamento.Sticker import run_sticker
+import telepot
+from telepot.delegate import pave_event_space, per_chat_id, create_open
+
+from Funzionamento.Audio import audio
+from Funzionamento.Insulti import  insulti
+from Funzionamento.Sticker import sticker_sender
 
 TOKEN = "259879078:AAHmqrSCT8B8O8PPN2us_cn01PruR50Ispo"
 
-sticker_bot=run_sticker(TOKEN)
-insulti_bot=run_insulti(TOKEN)
-audio_bot=run_audio(TOKEN)
+bot = telepot.DelegatorBot(TOKEN, [
+        pave_event_space()(
+            per_chat_id(), create_open, sticker_sender, timeout=100),
+        pave_event_space()(per_chat_id(), create_open, insulti, timeout=100),
+    pave_event_space()(per_chat_id(), create_open, audio, timeout=100)
+    ])
 
-
-if False:
-    insulti_bot.message_loop(run_forever='Listening ...')
-if False:
-    insulti_bot.message_loop(run_forever='Listening ...')
-if True:
-    insulti_bot.message_loop(run_forever='Listening ...')
-
-
-
+bot.message_loop(run_forever="listening ...")
