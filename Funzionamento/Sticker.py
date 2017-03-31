@@ -4,7 +4,6 @@ import traceback
 import telepot
 from telepot.delegate import per_chat_id, create_open, pave_event_space
 
-from bot import TOKEN
 
 # ad ogni nome sono correlati gli id degli sticker
 sticker_dict = {"tommaso": ["CAADAgADPAADaRwpAXAAAZZE4WvcRgI"],
@@ -72,12 +71,10 @@ class sticker_sender(telepot.helper.ChatHandler):
             elif "sovraccosce" in message:
                 self.sender.sendSticker("CAADAgADQwADaRwpAQ4yYMZEORKsAg")
 
-
-
 # sta parte solo dio sa che fa
-bot = telepot.DelegatorBot(TOKEN, [
-    pave_event_space()(
-        per_chat_id(), create_open, sticker_sender, timeout=1000),
-])
-bot.message_loop(run_forever='Listening ...')
-
+def run_sticker(token):
+    bot = telepot.DelegatorBot(token, [
+        pave_event_space()(
+            per_chat_id(), create_open, sticker_sender, timeout=1000),
+    ])
+    return bot

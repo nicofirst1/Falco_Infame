@@ -4,9 +4,9 @@ import os
 import telepot
 from telepot.delegate import per_chat_id, create_open, pave_event_space
 
-from bot import TOKEN
+from Funzionamento.Audio import audio
 
-path=os.path.dirname(os.path.abspath(__file__)).split("Modalità di funzionamento")[0]+"files/insulti.txt"
+path=os.path.dirname(os.path.abspath(__file__)).split("Funzionamento")[0]+"/files/insulti.txt"
 
 
 with open(path) as file:
@@ -38,9 +38,10 @@ class insulti(telepot.helper.ChatHandler):
 
 
 # sta parte solo dio sa che fa
-bot = telepot.DelegatorBot(TOKEN, [
-    pave_event_space()(
-        per_chat_id(), create_open, insulti, timeout=1000),
-])
-bot.message_loop(run_forever='Listening ...')
+def run_insulti(token):
+    bot = telepot.DelegatorBot(token, [
+        pave_event_space()(
+            per_chat_id(), create_open, insulti, timeout=100),
+    ])
+    return bot
 
