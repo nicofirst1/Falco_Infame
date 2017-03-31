@@ -12,7 +12,7 @@ sticker_dict = {"tommaso": ["CAADAgADPAADaRwpAXAAAZZE4WvcRgI"],
                 "salvatore": ["CAADAgADQgADaRwpAbYztok1WxzxAg"],
                 "federico": ["CAADAgADNgADaRwpAY01VYA9kGygAg", "CAADAgADPwADaRwpAddbHgmKyOV9Ag"],
                 "clinciu": ["CAADAgADPQADaRwpAaWXU7nysbFuAg", "CAADAgADRgADaRwpAXkDeJv0l_S0Ag"],
-                "nicolo": ["CAADAgADOwADaRwpAfyRXoNAmFhyAg", "CAADAgADRAADaRwpAeyKaJ"],
+                "nicolo": ["CAADAgADOwADaRwpAfyRXoNAmFhyAg", "CAADAgADRAADaRwpAeyKaJ-YOqJYAg"],
                 "edoardo": ["CAADAgADNwADaRwpAWGPbiFxmsA-Ag", "CAADAgADQAADaRwpAfIAAVrG8HwOiAI"],
                 "chiara": ["CAADAgADOAADaRwpAUzmcwFd3dWGAg", "CAADAgADQQADaRwpAcWYSoSoWvZnAg"]
                 }
@@ -67,7 +67,7 @@ class sticker_sender(telepot.helper.ChatHandler):
             elif any(ext in message for ext in nick_names.get("chiara")):
                 self.sender.sendSticker(random.choice(self._dictionary.get("chiara")))
             elif "freda" in message:
-                self.sender.sendSticker("CAADAgADRAADaRwpAeyKaJ")
+                self.sender.sendSticker("CAADAgADRAADaRwpAeyKaJ-YOqJYAg")
             elif "sovraccosce" in message:
                 self.sender.sendSticker("CAADAgADQwADaRwpAQ4yYMZEORKsAg")
 
