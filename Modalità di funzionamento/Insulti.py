@@ -1,13 +1,15 @@
 import sys
 import random
-import traceback
+import os
 import telepot
 from telepot.delegate import per_chat_id, create_open, pave_event_space
 
 from bot import TOKEN
 
+path=os.path.dirname(os.path.abspath(__file__)).split("Modalità di funzionamento")[0]+"files/insulti.txt"
 
-with open("/Users/nicolo/PycharmProjects/Falco_Infame/files/insulti.txt") as file:
+
+with open(path) as file:
     insulti_list=file.readlines()
 
 # creo una classe perche bho
