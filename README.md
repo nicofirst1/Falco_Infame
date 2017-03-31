@@ -1,2 +1,2 @@
 # Falco Infame
-Per far partire il programma basta eseguire il file Sticker.py
+Per far partire il programma basta eseguire un file dentro la directory modalità di funzionamento, se il programma vi da un errore in loop è perche qualcun'altro sta facendo partire il bot.
